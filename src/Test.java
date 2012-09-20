@@ -1,8 +1,8 @@
 /**
  * Module1
  * User: Bhawna
- * Date: 9/18/12
- * Time: 4:00 PM
+ * Date: 9/20/12
+ * Time: 11:00 PM
  * View
  */
 
@@ -18,7 +18,7 @@ public class Test {
         task.userCode = userInput.next();
         System.out.println("Enter the task name:");                  // Prompt the user to input task.
         task.userTask = userInput.next();
-        System.out.println("Enter the time taken for the task:");    // Prompt the user to input task.
+        System.out.println("Enter the time taken for the task:");    // Prompt the user to input time for task.
         task.userTime = userInput.next();
         System.out.println("Do you want to add a tag yes/no?");
         task.answer = userInput.next();

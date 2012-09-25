@@ -66,35 +66,14 @@ public class TaskController {
         }
     }
 
-    public void test_toString() {
-        System.out.println("Test if toString() returns the expected string...") ;
-        TaskModel task= new TaskModel();
-        task.setTask("task1");
-        task.setTime("2h");
-        task.setTag("this is a tag");
-        TaskModel testTask = new TaskModel(task.getTask(),task.getTime(),task.getTag(),task.getCurrentDate()) ;
-        String expected ="12/09/25||Task=task1||Time =2h||Tag=this is a tag";
-        System.out.println(expected);
-        //String exp=testTask.toString();
-        //System.out.println(testTask.toString());
-        String actual=testTask.toString();
-        System.out.println(actual);
-        if(actual.equals(expected))
-        System.out.println("hello");
-        //System.out.println(expected);
-
-        //String exp=testTask.toString();
-        //System.out.println(testTask.toString());
-    }
 
     //Main function.
     public static void main(String[] args) {
         TaskModel task = new TaskModel();
         TaskController taskObj = new TaskController();
-       /* taskObj.getInput(task);
+        taskObj.getInput(task);
         taskObj.checkTag(task);
         taskObj.storeInputInFile(task);
-        System.out.println("Your Task has been successfully stored.");*/
-        taskObj.test_toString();
+        System.out.println("Your Task has been successfully stored.");
     }
 }

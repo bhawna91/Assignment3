@@ -10,7 +10,7 @@ import static org.junit.Assert.assertTrue;
  */
 public class TaskModelTest {
     @Test
-    public void test_toString() {
+    public void testToString() {
         System.out.println("Test if toString() returns the expected string...");
         TaskModel task = new TaskModel();
         task.setTask("task1");

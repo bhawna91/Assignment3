@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class TaskModel implements Serializable {
-    private String userTask;                                      // String to store the user task.
+    private String userTask="";                                      // String to store the user task.
     private String userTime;                                      // String to store the user time
     private String tag = "";                                        // String to store the tag
 
@@ -73,16 +73,16 @@ public class TaskModel implements Serializable {
     public String toString() {         //Override toString function
         int flag = 0;
         String commandString = "";
-        commandString += getCurrentDate() + "||" + "Task=" + getTask() + "||" + "Time =" + getTime();
+        commandString=getCurrentDate()+"||"+"Task="+getTask()+"||"+"Time ="+getTime();
         for (String s : userTag) {
             if (flag == 0)
-                tag += s;
+                tag +=s;
             else
-                tag += "~" + s;
+                tag += "~" +s;
             flag++;
         }
         if (!(userTag.isEmpty())) {
-            commandString += "||" + "Tag=" + tag;
+            commandString += "||" + "Tag=" +tag;
             commandString = commandString.replace("[", "").replace("]", "");
         }
         return commandString;

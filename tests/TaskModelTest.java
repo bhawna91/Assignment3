@@ -1,6 +1,9 @@
 import org.junit.Test;
 
-import static org.junit.Assert.assertTrue;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import static junit.framework.Assert.assertEquals;
 
 /**
  * Test for toString()
@@ -12,14 +15,11 @@ public class TaskModelTest {
     @Test
     public void testToString() {
         System.out.println("Test if toString() returns the expected string...");
-        TaskModel task = new TaskModel();
-        task.setTask("task1");
-        task.setTime("2h");
-        task.setTag("this is a tag");
-        TaskModel testTask = new TaskModel(task.getTask(), task.getTime(), task.getTag(), task.getCurrentDate());
+        ArrayList<String> tag = new ArrayList<String>( Arrays.asList("this is a tag"));
+        TaskModel testTask = new TaskModel("task1","2h",tag,"12/09/25");
         String expected = "12/09/25||Task=task1||Time =2h||Tag=this is a tag";
         String actual = testTask.toString();
-        assertTrue(actual.equals(expected));
+        assertEquals(expected,actual);
     }
 }
 

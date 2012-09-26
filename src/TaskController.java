@@ -27,7 +27,7 @@ public class TaskController {
     public void checkTag(TaskModel task) {
         String option = "y";
         Scanner input = new Scanner(System.in);
-        String str = "Do you want to enter a tag?y/n";
+        String str = "Do you want to enter a tag for your command?y/n";
         while (option.equals("y")) {
             System.out.println(str);
             option = input.next();

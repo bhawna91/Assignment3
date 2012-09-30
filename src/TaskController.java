@@ -11,23 +11,27 @@ import java.util.Scanner;
 
 public class TaskController {
 
+    public TaskController(){
+
+    }
+
     //Function to get the mandatory inputs from the user.
     public void getInput(TaskModel task) {
         Scanner userInput = new Scanner(System.in);
-        System.out.print("Enter the employee code:");                // Prompt the user to input Employee code.
-        task.setCode(userInput.next());
-        System.out.println("Enter the task name:");                  // Prompt the user to input task.
-        task.setTask(userInput.next());
-        System.out.println("Enter the time taken for the task:");    // Prompt the user to input time for task.
-        task.setTime(userInput.next());
-
+        //System.out.print("Enter the employee code:");                // Prompt the user to input Employee code.
+        task.setCode("1001");
+       // System.out.println("Enter the task name:");                  // Prompt the user to input task.
+        task.setTask("task1");
+        //System.out.println("Enter the time taken for the task:");    // Prompt the user to input time for task.
+        task.setTime("2h");
+        task.test();
     }
 
     //Function to check for presence of tag.
     public void checkTag(TaskModel task) {
         String option = "y";
         Scanner input = new Scanner(System.in);
-        String str = "Do you want to enter a tag for your command?y/n";
+        String str = "Do you want to enter a tag?y/n";
         while (option.equals("y")) {
             System.out.println(str);
             option = input.next();

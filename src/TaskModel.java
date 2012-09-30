@@ -12,10 +12,10 @@ import java.util.Calendar;
 
 public class TaskModel implements Serializable {
     private String userTask="";                                      // String to store the user task.
-    private String userTime;                                      // String to store the user time
+    private String userTime="";                                      // String to store the user time
     private String tag = "";                                        // String to store the tag
 
-    private String userCode;                                      // String to store Employee code
+    private String userCode="";                                      // String to store Employee code
     private String currentDate;
     ArrayList<String> userTag = new ArrayList<String>();
 
@@ -30,6 +30,9 @@ public class TaskModel implements Serializable {
         this.currentDate = date;
     }
 
+    public void test(){
+
+    }
     public void setCode(String code) {      //Stores the user code.
         userCode = code;
     }

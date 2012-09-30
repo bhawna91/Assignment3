@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class TaskController {
 
-    public TaskController(){
+    public TaskController() {
 
     }
 
@@ -20,7 +20,7 @@ public class TaskController {
         Scanner userInput = new Scanner(System.in);
         //System.out.print("Enter the employee code:");                // Prompt the user to input Employee code.
         task.setCode("1001");
-       // System.out.println("Enter the task name:");                  // Prompt the user to input task.
+        // System.out.println("Enter the task name:");                  // Prompt the user to input task.
         task.setTask("task1");
         //System.out.println("Enter the time taken for the task:");    // Prompt the user to input time for task.
         task.setTime("2h");

@@ -33,7 +33,7 @@ public class TaskModelTest {
     @Test
     public void testToString() {
         System.out.println("Test if toString() returns the expected string...");
-        String expected = "12/09/25||Task=task1||Time =2h||Tag=this is a tag";
+        String expected = "12/09/30||Task=task1||Time =2h||Tag=this is a tag";
         String actual = testTask.toString();
         assertEquals(expected, actual);
     }

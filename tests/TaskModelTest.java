@@ -15,7 +15,7 @@ import static junit.framework.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
 /**
- * Test for toString()
+ * Test for getInput()
  * User: Bhawna
  * Date: 9/25/12
  * Time: 9:00 PM

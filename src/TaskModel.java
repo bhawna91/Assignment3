@@ -19,7 +19,7 @@ public class TaskModel implements Serializable {
     private String currentDate;
     ArrayList<String> userTag = new ArrayList<String>();
 
-    // Constructors to initialize the task object
+    // Constructor to initialize the task object
     public TaskModel() {
     }
 

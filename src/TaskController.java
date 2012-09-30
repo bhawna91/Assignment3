@@ -15,7 +15,7 @@ public class TaskController {
 
     }
 
-    //Function to get the mandatory inputs from the user.
+    //Function to get the mandatory input from the user.
     public void getInput(TaskModel task) {
         Scanner userInput = new Scanner(System.in);
         //System.out.print("Enter the employee code:");                // Prompt the user to input Employee code.

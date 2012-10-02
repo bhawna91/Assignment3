@@ -7,82 +7,55 @@
 
 
 import java.io.*;
-import java.util.Scanner;
 
 public class TaskController {
 
-    public String getString() {
-        Scanner userInput = new Scanner(System.in);
-        String data = userInput.next();
-        return data;
-    }
-
     //Function to get the mandatory input from the user.
-    public void getInput(TaskModel task) {
-
+    public void getInput(TaskModel task, IOClass io) {
         System.out.print("Enter the employee code:");                // Prompt the user to input Employee code.
-        String userCode = getString();
+        String userCode = io.getString();
         task.setCode(userCode);
         System.out.println("Enter the task name:");                  // Prompt the user to input task.
-        String userTask = getString();
+        String userTask = io.getString();
         task.setTask(userTask);
         System.out.println("Enter the time taken for the task:");    // Prompt the user to input time for task.
-        String userTime = getString();
+        String userTime = io.getString();
         task.setTime(userTime);
         task.test();
     }
 
     //Function to check for presence of tag.
-    public void checkTag(TaskModel task) {
+    public void checkTag(TaskModel task, IOClass io) {
         String option = "y";
-        Scanner input = new Scanner(System.in);
         String str = "Do you want to enter a tag?y/n";
         while (option.equals("y")) {
             System.out.println(str);
-            option = input.next();
+            option = io.getString();
             if (option.equals("y")) {
                 System.out.println("Enter the tag:");
-                storeTag(task);
+                task.setTag(io.getLine());
             }
             str = "Do you want to enter another tag?y/n";
         }
     }
 
-    //Function to store the tag.
-    public void storeTag(TaskModel task) {
-        InputStreamReader in = new InputStreamReader(System.in);
-        BufferedReader bin = new BufferedReader(in);
-        try {
-            task.setTag(bin.readLine());
-        } catch (java.io.IOException exp) {
-            exp.printStackTrace();
-        }
-    }
 
     //Function to store input in file.
-    public void storeInputInFile(TaskModel task) {
+    public void storeInputInFile(TaskModel task, IOClass io) {
         String filename = task.getCode() + ".txt";
         TaskModel createTask = new TaskModel(task.getTask(), task.getTime(), task.getTag(), task.getCurrentDate());
-        FileOutputStream fos = null;
-        ObjectOutputStream out = null;
-        try {
-            fos = new FileOutputStream(filename, true);
-            out = new ObjectOutputStream(fos);
-            out.writeObject(createTask);
-            out.close();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+        io.writeToFile(filename, createTask);
     }
 
 
     //Main function.
     public static void main(String[] args) {
         TaskModel task = new TaskModel();
+        IOClass ioObject = new IOClass();
         TaskController taskObj = new TaskController();
-        taskObj.getInput(task);
-        taskObj.checkTag(task);
-        taskObj.storeInputInFile(task);
+        taskObj.getInput(task, ioObject);
+        taskObj.checkTag(task, ioObject);
+        taskObj.storeInputInFile(task, ioObject);
         System.out.println("Your Task has been successfully stored.");
     }
 }

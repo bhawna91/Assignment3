@@ -40,16 +40,14 @@ public class TaskModelTest {
 
     @Test
     public void testGetInput() {
-        TaskController taskController = new TaskController() {
-            public String getString() {
-                return "testString";
-            }
-        };
+        IOClass inputObj = Mockito.mock(IOClass.class);
+        when(inputObj.getString()).thenReturn("1001").thenReturn("task1").thenReturn("2h");
+        TaskController taskController = new TaskController();
         TaskModel taskModel = Mockito.mock(TaskModel.class);
-        taskController.getInput(taskModel);
-        verify(taskModel, times(1)).setCode("testString");
-        verify(taskModel, times(1)).setTask("testString");
-        verify(taskModel, times(1)).setTask("testString");
+        taskController.getInput(taskModel, inputObj);
+        verify(taskModel, times(1)).setCode("1001");
+        verify(taskModel, times(1)).setTask("task1");
+        verify(taskModel, times(1)).setTime("2h");
     }
 }
 

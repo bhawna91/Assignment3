@@ -47,9 +47,9 @@ public class TaskModelTest {
         };
         TaskModel taskModel = Mockito.mock(TaskModel.class);
         taskController.getInput(taskModel);
-        verify(taskModel, times(1)).setCode(anyString());
-        verify(taskModel, times(1)).setTask(anyString());
-        verify(taskModel, times(1)).setTask(anyString());
+        verify(taskModel, times(1)).setCode("testString");
+        verify(taskModel, times(1)).setTask("testString");
+        verify(taskModel, times(1)).setTask("testString");
     }
 }
 

@@ -11,19 +11,24 @@ import java.util.Scanner;
 
 public class TaskController {
 
-    public TaskController() {
-
+    public String getString() {
+        Scanner userInput = new Scanner(System.in);
+        String data = userInput.next();
+        return data;
     }
 
     //Function to get the mandatory input from the user.
     public void getInput(TaskModel task) {
-        Scanner userInput = new Scanner(System.in);
-        //System.out.print("Enter the employee code:");                // Prompt the user to input Employee code.
-        task.setCode("1001");
-        // System.out.println("Enter the task name:");                  // Prompt the user to input task.
-        task.setTask("task1");
-        //System.out.println("Enter the time taken for the task:");    // Prompt the user to input time for task.
-        task.setTime("2h");
+
+        System.out.print("Enter the employee code:");                // Prompt the user to input Employee code.
+        String userCode = getString();
+        task.setCode(userCode);
+        System.out.println("Enter the task name:");                  // Prompt the user to input task.
+        String userTask = getString();
+        task.setTask(userTask);
+        System.out.println("Enter the time taken for the task:");    // Prompt the user to input time for task.
+        String userTime = getString();
+        task.setTime(userTime);
         task.test();
     }
 

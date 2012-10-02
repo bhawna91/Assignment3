@@ -27,28 +27,29 @@ public class TaskModelTest {
     @Before
     public void before() {
         tag = new ArrayList<String>(Arrays.asList("this is a tag"));
-        testTask = new TaskModel("task1", "2h", tag, "12/09/25");
+        testTask = new TaskModel("task1", "2h", tag, "12/10/02");
     }
 
     @Test
     public void testToString() {
         System.out.println("Test if toString() returns the expected string...");
-        String expected = "12/09/30||Task=task1||Time =2h||Tag=this is a tag";
+        String expected = "12/10/02||Task=task1||Time =2h||Tag=this is a tag";
         String actual = testTask.toString();
         assertEquals(expected, actual);
     }
 
     @Test
     public void testGetInput() {
-
+        TaskController taskController = new TaskController() {
+            public String getString() {
+                return "testString";
+            }
+        };
         TaskModel taskModel = Mockito.mock(TaskModel.class);
-        TaskController taskController = new TaskController();
         taskController.getInput(taskModel);
         verify(taskModel, times(1)).setCode(anyString());
         verify(taskModel, times(1)).setTask(anyString());
         verify(taskModel, times(1)).setTask(anyString());
     }
-
-
 }
 

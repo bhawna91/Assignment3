@@ -27,13 +27,13 @@ public class TaskModelTest {
     @Before
     public void before() {
         tag = new ArrayList<String>(Arrays.asList("this is a tag"));
-        testTask = new TaskModel("task1", "2h", tag, "12/10/02");
+        testTask = new TaskModel("task1", "2h", tag, "12/10/03");
     }
 
     @Test
     public void testToString() {
         System.out.println("Test if toString() returns the expected string...");
-        String expected = "12/10/02||Task=task1||Time =2h||Tag=this is a tag";
+        String expected = "12/10/03||Task=task1||Time =2h||Tag=this is a tag";
         String actual = testTask.toString();
         assertEquals(expected, actual);
     }
@@ -41,7 +41,7 @@ public class TaskModelTest {
     @Test
     public void testGetInput() {
         IOClass inputObj = Mockito.mock(IOClass.class);
-        when(inputObj.getString()).thenReturn("1001").thenReturn("task1").thenReturn("2h");
+        when(inputObj.getString()).thenReturn("1002").thenReturn("task1").thenReturn("2h");
         TaskController taskController = new TaskController();
         TaskModel taskModel = Mockito.mock(TaskModel.class);
         taskController.getInput(taskModel, inputObj);

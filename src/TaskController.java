@@ -24,7 +24,7 @@ public class TaskController {
         task.test();
     }
 
-    //Function to check for presence of tag.
+    //Function to check for presence of tag and store it.
     public void checkTag(TaskModel task, IOClass io) {
         String option = "y";
         String str = "Do you want to enter a tag?y/n";

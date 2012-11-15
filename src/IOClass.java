@@ -5,13 +5,6 @@ import org.apache.hadoop.hbase.util.Bytes;
 import java.io.*;
 import java.util.Scanner;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Bhawna
- * Date: 10/2/12
- * Time: 6:54 PM
- * To change this template use File | Settings | File Templates.
- */
 public class IOClass {
     public String getString() {                                 //function to return user input string
         Scanner userInput = new Scanner(System.in);
@@ -58,7 +51,7 @@ public class IOClass {
 
     public void writeToHBase(TaskModel task)throws IOException {     //Write to HBase
         HTablePool pool = new HTablePool();
-        HTableInterface taskTable = pool.getTable(Bytes.toBytes("Task1"));
+        HTableInterface taskTable = pool.getTable(Bytes.toBytes("Task"));
         Put p = makePut(task);
         taskTable.put(p);
         taskTable.close();

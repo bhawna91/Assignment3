@@ -36,7 +36,6 @@ public class TaskModel implements Serializable {
         userTime = time;
     }
 
-    //Function to store the Tag.
     public void setTag(String tag) {      //Stores the user tag.
         userTag.add(tag);
     }

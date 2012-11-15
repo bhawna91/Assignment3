@@ -1,11 +1,3 @@
-/**
- * User: Bhawna
- * Date: 9/23/12
- * Time: 4:45 PM
- * Controller
- */
-
-
 import java.io.*;
 
 public class TaskController {
@@ -42,10 +34,7 @@ public class TaskController {
 
     //Function to store input in file.
     public void storeInput(TaskModel task, IOClass io) {
-        //String filename = task.getCode() + ".txt";
         TaskModel createTask = new TaskModel(task.getTask(), task.getTime(), task.getTag(), task.getCurrentDate());
-        //io.writeToFile(filename, createTask);
-        try {
             io.writeToHBase(createTask);
         } catch (IOException ex) {
             ex.printStackTrace();

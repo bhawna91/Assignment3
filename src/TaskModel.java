@@ -16,11 +16,12 @@ public class TaskModel implements Serializable {
     public TaskModel() {
     }
 
-    public TaskModel(String task, String time, ArrayList tag, String date) {
+    public TaskModel(String code,String task, String time, ArrayList tag, String date) {
         this.userTask = task;
         this.userTime = time;
         this.userTag = tag;
         this.currentDate = date;
+        this.userCode=code;
     }
 
     public void test(){
@@ -67,6 +68,7 @@ public class TaskModel implements Serializable {
     }
 
     public String getTagAsString(){      // Retrieve the tag as String value.
+        tag="";
         int flag = 0;
         for (String s : userTag) {
             if (flag == 0)

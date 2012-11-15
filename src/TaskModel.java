@@ -24,9 +24,6 @@ public class TaskModel implements Serializable {
         this.userCode=code;
     }
 
-    public void test(){
-
-    }
     public void setCode(String code) {      //Stores the user code.
         userCode = code;
     }

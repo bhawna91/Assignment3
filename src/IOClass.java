@@ -1,3 +1,7 @@
+import org.apache.hadoop.hbase.client.HTableInterface;
+import org.apache.hadoop.hbase.client.HTablePool;
+import org.apache.hadoop.hbase.client.Put;
+import org.apache.hadoop.hbase.util.Bytes;
 import java.io.*;
 import java.util.Scanner;
 
@@ -38,5 +42,25 @@ public class IOClass {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+
+
+    private static Put makePut(TaskModel task) {            //Prepare object for writing to HBase
+        Put p = new Put(Bytes.toBytes(task.getCurrentDate()));
+        p.add(Bytes.toBytes("cf1"), Bytes.toBytes("Code"), Bytes.toBytes(task.getCode()));
+        p.add(Bytes.toBytes("cf1"), Bytes.toBytes("Name"), Bytes.toBytes(task.getTask()));
+        p.add(Bytes.toBytes("cf1"), Bytes.toBytes("Time"), Bytes.toBytes(task.getTime()));
+        p.add(Bytes.toBytes("cf1"), Bytes.toBytes("Tag"),  Bytes.toBytes(task.getTagAsString()));
+        p.add(Bytes.toBytes("cf2"), Bytes.toBytes("Date"),  Bytes.toBytes(task.getCurrentDate()));
+        p.add(Bytes.toBytes("cf2"), Bytes.toBytes("Task"),  Bytes.toBytes(task.toString()));
+        return p;
+    }
+
+    public void writeToHBase(TaskModel task)throws IOException {     //Write to HBase
+        HTablePool pool = new HTablePool();
+        HTableInterface taskTable = pool.getTable(Bytes.toBytes("Task1"));
+        Put p = makePut(task);
+        taskTable.put(p);
+        taskTable.close();
     }
 }

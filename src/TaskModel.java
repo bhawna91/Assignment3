@@ -1,10 +1,3 @@
-/**
- * User: Bhawna
- * Date: 9/23/12
- * Time: 4:45 PM
- * Model
- */
-
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -73,10 +66,8 @@ public class TaskModel implements Serializable {
         return dateNow;
     }
 
-    public String toString() {         //Override toString function
+    public String getTagAsString(){      // Retrieve the tag as String value.
         int flag = 0;
-        String commandString = "";
-        commandString=getCurrentDate()+"||"+"Task="+getTask()+"||"+"Time ="+getTime();
         for (String s : userTag) {
             if (flag == 0)
                 tag +=s;
@@ -84,6 +75,14 @@ public class TaskModel implements Serializable {
                 tag += "~" +s;
             flag++;
         }
+        return tag;
+    }
+
+    public String toString() {         //Override toString function
+
+        String commandString = "";
+        commandString=getCurrentDate()+"||"+"Task="+getTask()+"||"+"Time ="+getTime();
+        tag= getTagAsString();
         if (!(userTag.isEmpty())) {
             commandString += "||" + "Tag=" +tag;
             commandString = commandString.replace("[", "").replace("]", "");

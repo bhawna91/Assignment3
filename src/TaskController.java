@@ -41,10 +41,15 @@ public class TaskController {
 
 
     //Function to store input in file.
-    public void storeInputInFile(TaskModel task, IOClass io) {
-        String filename = task.getCode() + ".txt";
+    public void storeInput(TaskModel task, IOClass io) {
+        //String filename = task.getCode() + ".txt";
         TaskModel createTask = new TaskModel(task.getTask(), task.getTime(), task.getTag(), task.getCurrentDate());
-        io.writeToFile(filename, createTask);
+        //io.writeToFile(filename, createTask);
+        try {
+            io.writeToHBase(createTask);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+          }
     }
 
 
@@ -55,7 +60,7 @@ public class TaskController {
         TaskController taskObj = new TaskController();
         taskObj.getInput(task, ioObject);
         taskObj.checkTag(task, ioObject);
-        taskObj.storeInputInFile(task, ioObject);
+        taskObj.storeInput(task, ioObject);
         System.out.println("Your Task has been successfully stored.");
     }
 }

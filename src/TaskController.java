@@ -32,7 +32,7 @@ public class TaskController {
     }
 
 
-    //Function to store input in file.
+    //Function to store input.
     public void storeInput(TaskModel task, IOClass io) {
         TaskModel createTask = new TaskModel(task.getCode(),task.getTask(), task.getTime(), task.getTag(), task.getCurrentDate());
             io.writeToHBase(createTask);

@@ -44,8 +44,8 @@ public class IOClass {
         p.add(Bytes.toBytes("cf1"), Bytes.toBytes("Name"), Bytes.toBytes(task.getTask()));
         p.add(Bytes.toBytes("cf1"), Bytes.toBytes("Time"), Bytes.toBytes(task.getTime()));
         p.add(Bytes.toBytes("cf1"), Bytes.toBytes("Tag"),  Bytes.toBytes(task.getTagAsString()));
-        p.add(Bytes.toBytes("cf2"), Bytes.toBytes("Date"),  Bytes.toBytes(task.getCurrentDate()));
-        p.add(Bytes.toBytes("cf2"), Bytes.toBytes("Task"),  Bytes.toBytes(task.toString()));
+        p.add(Bytes.toBytes("cf1"), Bytes.toBytes("Date"),  Bytes.toBytes(task.getCurrentDate()));
+        p.add(Bytes.toBytes("cf1"), Bytes.toBytes("Task"),  Bytes.toBytes(task.toString()));        //complete task
         return p;
     }
 
